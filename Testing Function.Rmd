@@ -1,0 +1,50 @@
+---
+title: "Testing Function"
+author: "Lara Charlotte Kuberka"
+date: "2023-10-31"
+output: html_document
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+```{r Packages, include=FALSE}
+library(dplyr)
+```
+
+#### Function 
+
+- Creating a function to transform data into a tibble and appending user defined vector to data set
+- x = dataset, y = user-defined vector
+
+```{r}
+data_as_tibble <- function(x, y) {
+  x = cbind(x,y)
+  x = as_tibble(x)
+  return(x)
+}
+```
+
+#### Loading Dataset from R:
+```{r}
+data(sleep)
+```
+
+#### user- defined data as vector:
+```{r}
+timezone <- c("CET", "GMT", "EST","CET", "GMT", "EST","CET", "GMT", "EST", "CET","CET", "GMT", "EST","CET", "GMT", "EST","CET", "GMT", "EST", "CET")
+```
+
+
+#### using data with function to show the functionalities of function
+```{r}
+data_as_tibble(sleep,timezone)
+```
+
+This function has created a tibble from the given dataset and appended user-defined data in form of a vector to extend the data frame according to the user's wishes.
+
+
+
