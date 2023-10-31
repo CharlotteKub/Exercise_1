@@ -1,10 +1,10 @@
 
 
-## Creating a function to transform data into a tibble
+## Creating a function to transform data into a tibble and appending user defined vector to data set
+## x = dataset, y = user-defined vector
 
-library(dplyr)
-
-data_as_tibble <- function(x) {
+data_as_tibble <- function(x, y) {
+  x = cbind(x,y)
   x = as_tibble(x)
   return(x)
 }
@@ -12,5 +12,10 @@ data_as_tibble <- function(x) {
 ## Loading Dataset from R:
 
 data(sleep)
-data_as_tibble(sleep)
 
+# user- defined data as vector:
+
+timezone <- c("CET", "GMT", "EST","CET", "GMT", "EST","CET", "GMT", "EST", "CET","CET", "GMT", "EST","CET", "GMT", "EST","CET", "GMT", "EST", "CET")
+
+
+data_as_tibble(sleep,timezone)
